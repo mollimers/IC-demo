@@ -10,9 +10,6 @@
  *              div_border_radius(id, radius)
  *              save_div(id)
  ***********************************************************************/
-/*     var heightInput = document.querySelector('#height') as HTMLInputElement;
-    var widthInput = document.querySelector('#width') as HTMLInputElement;
-    var radiusInput = document.querySelector('#radius') as HTMLInputElement; */
 function div_height(id) {
     var heightInput = document.querySelector('#height');
     var size_string = heightInput.value.toString() + "px";
@@ -39,7 +36,6 @@ function div_border_radius(id) {
 function save_div(id) {
     div_height("div_1"); //, 30);
     div_width("div_1"); //, 30);
-    console.log("div W and H set");
     div_color("div_1", "lightblue");
     div_border_radius("div_1");
 }
