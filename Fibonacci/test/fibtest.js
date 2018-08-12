@@ -2,7 +2,7 @@
 exports.__esModule = true;
 var fibonacci_1 = require("../src/fibonacci");
 var fibbo = new fibonacci_1.Fibonacci();
-/* fibbo.test_encode(0);
+fibbo.test_encode(0);
 fibbo.test_encode(1);
 fibbo.test_encode(2);
 fibbo.test_encode(3);
@@ -12,7 +12,7 @@ fibbo.test_encode(6);
 fibbo.test_encode(7);
 fibbo.test_encode(8);
 fibbo.test_encode(9);
-fibbo.test_encode(10); */
+fibbo.test_encode(10);
 fibbo.test_decode('11');
 fibbo.test_decode('011');
 fibbo.test_decode('0011');
