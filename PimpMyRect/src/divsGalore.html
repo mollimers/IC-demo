@@ -1,40 +1,31 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <link rel="stylesheet" type="text/css" href="editor.css" />
+</head>
 <body>
-    <div id="div_1">
-        1
-    </div>
-
-    <div id="div_2">
-        2
-    </div>
-
-    <div id="div_3">
-        3
-    </div>
-
-    <div id="div_4">
-        4
-    </div>
-
     <script type="text/javascript" src="./editor.js"></script>
 
-    <script>
-        div_height("div_1", 30);
-        div_width("div_1", 30);
-        div_color("div_1", "lightblue")
-        
-        div_height("div_2", 30);
-        div_width("div_2", 30);
-        div_color("div_2", "rgb(56, 23, 48)");
-        
-        div_height("div_3", 30);
-        div_width("div_3", 30);
-        div_color("div_3", "aquamarine");
-        
-        div_height("div_4", 30);
-        div_width("div_4", 30);
-        div_color("div_4", "rgb(230, 173, 173)");
-    </script>
+    <form>
+        <div class="HeightAndWidth">
+            <span>— Enter the &ltdiv&gt measurements in px — </span>
+            <br>
+            <label for="height">height:</label>
+            <input id="height" type="number" name="height" min="5" step="1" value="5">
+            <span class="validity"></span>
+            <label for="width">width:</label>
+            <input id="width" type="number" name="width" min="5" step="1" value="5">
+            <span class="validity"></span>
+            <br>
+            <br>
+            <label for="radius">radius:</label>
+            <input id="radius" type="number" name="radius" min="0" step="1" value="1">
+            <span class="validity"></span>
+        </div>
+    </form>
+    <button onclick="save_div('div_1')">Save Div</button>
+    <br>
+    <div id="div_1"></div>
+
 </body>
 </html>

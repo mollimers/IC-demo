@@ -1,0 +1,21 @@
+1) html sida med <div> 's i olika färger och former     DONE
+
+2) skript som moddar någon egenskap                     DONE
+
+3) kontroll till height+width                           DONE
+
+4) set the values to the div                            DONE
+
+5) radius picker
+
+6) color picker
+    https://dzone.com/articles/creating-your-own-html5
+    https://www.w3schools.com/colors/colors_mixer.asp
+
+7) create divs dynamically and save them to the gallery
+    https://stackoverflow.com/questions/14004117/create-div-and-append-div-dynamically
+
+8) persistens
+
+9) test on all "evergreens"
+    Chrome, Firefox, Opera, Edge
