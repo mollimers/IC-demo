@@ -1,7 +1,21 @@
 "use strict";
+/***********************************************************************
+ * Class name: Fibonacci
+ * Author: David Gillberg
+ * Purpose: Contains logic that allows a user encode and decode
+ *              binary fibonacci numbers, including padding.
+ *
+ * Functions:   encode(number)
+ *              decode(string)
+ *
+ *              zero_pad(amount)
+ *              reverse_string(input)
+ *              fib_seq(target)
+ *
+ ***********************************************************************/
+exports.__esModule = true;
 // värdena i talserien ser ut såhär.
 // 1 2 3 5 8 13 21 etc...
-exports.__esModule = true;
 // Detta gör att tex:
 // - 001 = 3 (0 + 0 + 3)
 // - 1001 = 6 (1 + 0 + 0 + 5)
@@ -43,14 +57,6 @@ var Fibonacci = /** @class */ (function () {
                 fibSeq = fibSeq.concat(next);
             }
             return fibSeq;
-        };
-        this.test_encode = function test(number) {
-            var retVal = this.encode(number);
-            console.log(retVal);
-        };
-        this.test_decode = function test(string) {
-            var retVal = this.decode(string);
-            console.log(retVal);
         };
     }
     Fibonacci.prototype.encode = function (number) {
