@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/Fibonacci\\test\\fibtest.js",
+            "program": "${workspaceFolder}/PimpMyRect\\test\\test_editor.js",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ]

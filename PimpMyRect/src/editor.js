@@ -1,6 +1,5 @@
-"use strict";
 /***********************************************************************
- * Class name: Editor
+ * Module name: Editor
  * Author: David Gillberg
  * Purpose: Contains logic that allows a user to specify the parameters
  *              of an empty <div> element and then save it.
@@ -11,24 +10,24 @@
  *              div_border_radius(id, radius)
  *              save_div(id)
  ***********************************************************************/
-exports.__esModule = true;
-var Editor = /** @class */ (function () {
-    function Editor() {
-        this.div_height = function div_height(id, size) {
-            var size_string = id.toString() + "px";
-            document.getElementById(id).style.height = size_string;
-        };
-        this.div_width = function div_width(id, size) {
-            var size_string = id.toString() + "px";
-            document.getElementById(id).style.width = size_string;
-        };
-        this.div_color = function div_color(id, color) {
-        };
-        this.div_border_radius = function div_border_radius(id, radius) {
-        };
-        this.save_div = function save_div(id) {
-        };
-    }
-    return Editor;
-}());
-exports.Editor = Editor;
+function div_height(id, size) {
+    var size_string = size.toString() + "px";
+    document.getElementById(id).setAttribute("height", size_string);
+    document.getElementById(id).style.height = size_string;
+}
+function div_width(id, size) {
+    var size_string = size.toString() + "px";
+    document.getElementById(id).setAttribute("width", size_string);
+    document.getElementById(id).style.width = size_string;
+}
+function div_color(id, color) {
+    document.getElementById(id).setAttribute("background-color", color);
+    document.getElementById(id).style.backgroundColor = color;
+}
+function div_border_radius(id, radius) {
+    var radius_string = radius.toString() + "px";
+    document.getElementById(id).setAttribute("border-radius", radius_string);
+    document.getElementById(id).style.borderRadius = radius_string;
+}
+function save_div(id) {
+}
