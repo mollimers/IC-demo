@@ -18,7 +18,7 @@
  *              fib_seq(target)
  *              
  ***********************************************************************/
-export module Fibo {
+export module FiboEncDec {
     export class Fibonacci {
         encode(number){
             //-----------------------------
