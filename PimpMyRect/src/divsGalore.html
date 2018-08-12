@@ -8,22 +8,21 @@
 
     <form>
         <div class="HeightAndWidth">
-            <span>— Enter the &ltdiv&gt measurements in px — </span>
-            <br>
+            <!-- <span>Enter the &ltdiv&gt measurements in px</span> -->
+            <h3>Enter the &ltdiv&gt measurements (in px)</h3>
             <label for="height">height:</label>
-            <input id="height" type="number" name="height" min="5" step="1" value="5">
-            <span class="validity"></span>
+            <input id="height" type="number" name="height" step="1" value="15">
             <label for="width">width:</label>
-            <input id="width" type="number" name="width" min="5" step="1" value="5">
-            <span class="validity"></span>
+            <input id="width" type="number" name="width" step="1" value="15">
             <br>
             <br>
             <label for="radius">radius:</label>
-            <input id="radius" type="number" name="radius" min="0" step="1" value="1">
-            <span class="validity"></span>
+            <input id="radius" type="number" name="radius" step="1" value="0">
         </div>
     </form>
     <button onclick="save_div('div_1')">Save Div</button>
+    <br>
+    <br>
     <br>
     <div id="div_1"></div>
 
