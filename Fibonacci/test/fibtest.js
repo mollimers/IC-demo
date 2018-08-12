@@ -1,7 +1,7 @@
 "use strict";
 exports.__esModule = true;
 var fibonacci_1 = require("../src/fibonacci");
-var fibbo = new fibonacci_1.Fibonacci();
+var fibbo = new fibonacci_1.FiboEncDec.Fibonacci();
 var fib_test = /** @class */ (function () {
     function fib_test() {
         this.test_encode = function test_encode(number) {

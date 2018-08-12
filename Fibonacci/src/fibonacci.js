@@ -20,8 +20,8 @@ exports.__esModule = true;
  *              fib_seq(target)
  *
  ***********************************************************************/
-var Fibo;
-(function (Fibo) {
+var FiboEncDec;
+(function (FiboEncDec) {
     var Fibonacci = /** @class */ (function () {
         function Fibonacci() {
         }
@@ -103,7 +103,7 @@ var Fibo;
         };
         return Fibonacci;
     }());
-    Fibo.Fibonacci = Fibonacci;
+    FiboEncDec.Fibonacci = Fibonacci;
     /***********************************************************
      * Helper functions
      ***********************************************************/
@@ -136,4 +136,4 @@ var Fibo;
         }
         return fibSeq;
     }
-})(Fibo = exports.Fibo || (exports.Fibo = {}));
+})(FiboEncDec = exports.FiboEncDec || (exports.FiboEncDec = {}));
