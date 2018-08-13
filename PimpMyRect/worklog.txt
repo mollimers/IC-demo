@@ -6,14 +6,11 @@
 
 4) set the values to the div                            DONE
 
-5) radius picker
+5) radius picker                                        DONE
 
-6) color picker
-    https://dzone.com/articles/creating-your-own-html5
-    https://www.w3schools.com/colors/colors_mixer.asp
+6) color picker                                         DONE
 
-7) create divs dynamically and save them to the gallery
-    https://stackoverflow.com/questions/14004117/create-div-and-append-div-dynamically
+7) create divs dynamically and save them to the gallery DONE
 
 8) persistens
 

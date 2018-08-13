@@ -4,29 +4,32 @@
     <link rel="stylesheet" type="text/css" href="editor.css" />
 </head>
 <body>
-    <form onkeypress="return noenter(event)">
+    <form onkeypress="return no_enter(event)">
         <div class="divForm">
-            <div class="HeightAndWidth">
-                <!-- <span>Enter the &ltdiv&gt measurements in px</span> -->
+            <div class="heightAndWidth">
                 <h3>Enter the &ltdiv&gt measurements (in px)</h3>
                 <label for="height">height:</label>
                 <input id="height" type="number" name="height" step="1" value="100" onchange="div_height('demoDiv')">
                 <label for="width">width:</label>
                 <input id="width" type="number" name="width" step="1"  value="100" onchange="div_width('demoDiv')">
             </div>
-            <div class="RadiusSlider">
+            <div class="radiusSlider">
                 <label for="radius">radius:</label>
                 <input type="range" min="1" max="100" value="50" class="slider" id="radiusRange" oninput="div_border_radius('demoDiv')">
             </div>
             <div>
-                    <button type="button" onclick="div_color('demoDiv')">Set Color</button> <input type="color" id="myColor">
+                    <input type="color" id="myColor" value="#e66465" onchange="div_color('demoDiv')">
             </div>
-            <button onclick="save_div()">Save Div</button>
+            <button type="button" onclick="save_div()">Save Div</button>
         </div>
     </form>
     <div class="preview">
-        <div id="demoDiv" style="background-color:blue; width:100px; height:100px; border-radius:25px"></div>
+        <div id="demoDiv" style="background-color:#e66465; width:100px; height:100px; border-radius:25px"></div>
     </div>
+
+    <div class="divGallery">
+    </div>
+
 
     <script type="text/javascript" src="./editor.js"></script>
 </body>

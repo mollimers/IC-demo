@@ -9,7 +9,11 @@
  *              div_color(id, color)
  *              div_border_radius(id, radius)
  *              save_div(id)
+ *              no_enter(evt)
  ***********************************************************************/
+
+    // TODO: when we have persistance implemented, this variable should be stored and read there
+    let divId: number = 0;
 
     function div_height(id){
         let heightInput: HTMLInputElement = document.querySelector('#height');
@@ -50,14 +54,34 @@
         document.getElementById(id).style.borderRadius = radius_string;
     }
     
-    function save_div(id){
-        div_height("demoDiv");
-        div_width("demoDiv");
-        div_color("demoDiv");
-        div_border_radius("demoDiv");
+    function save_div(){
+        let prevDivId = "div_" + divId;
+        divId++;    // increase the id variable
+        // create a new div to add to the gallery
+        let newDiv = document.createElement("div");
+        // give the div an id, so that we can reference it further on
+        let newDivId: string = newDiv.id = "div_" + divId;
+        console.log("newDiv: " + newDiv);
+        console.log("newDivId: " + newDivId);
+        
+
+        // add the newly created element to the DOM
+        let previousDiv: HTMLInputElement = document.querySelector('#div_0');
+        let galleryDiv: HTMLInputElement = document.querySelector('.divGallery');
+        console.log("previousDiv: " + previousDiv);
+        console.log("prevDivId: " + prevDivId);
+        console.log("galleryDiv: " + galleryDiv);
+        
+        galleryDiv.appendChild(newDiv);
+        //document.body.insertBefore(newDiv, previousDiv); 
+
+        div_height(newDivId);
+        div_width(newDivId);
+        div_color(newDivId);
+        div_border_radius(newDivId);
     }
 
-    function noenter(evt) {
+    function no_enter(evt) {
         if (evt.keyCode == 13) {
             return false;
         }
