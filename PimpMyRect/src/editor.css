@@ -6,6 +6,11 @@
     left: 60px;
 }
 
+.preview {
+    position: relative;
+    left: 60px;
+}
+
 div {
     margin-bottom: 10px;
     position: relative;
