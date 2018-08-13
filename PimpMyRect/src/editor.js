@@ -4,11 +4,11 @@
  * Purpose: Contains logic that allows a user to specify the parameters
  *              of an empty <div> element and then save it.
  *
- * Functions:   div_height(id, size)
- *              div_width(id, size)
- *              div_color(id, color)
- *              div_border_radius(id, radius)
- *              save_div(id)
+ * Functions:   div_height(id)
+ *              div_width(id)
+ *              div_color(id)
+ *              div_border_radius(id)
+ *              save_div()
  *              no_enter(evt)
  ***********************************************************************/
 // TODO: when we have persistance implemented, this variable should be stored and read there
