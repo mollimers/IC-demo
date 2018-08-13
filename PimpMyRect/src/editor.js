@@ -28,8 +28,8 @@ function div_color(id, color) {
     document.getElementById(id).style.backgroundColor = color;
 }
 function div_border_radius(id) {
-    var radiusInput = document.querySelector('#radius');
-    var radius_string = radiusInput.value.toString() + "px";
+    var radSlider = document.querySelector('#radiusRange');
+    var radius_string = radSlider.value.toString() + "px";
     document.getElementById(id).setAttribute("border-radius", radius_string);
     document.getElementById(id).style.borderRadius = radius_string;
 }

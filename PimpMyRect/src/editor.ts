@@ -32,8 +32,8 @@
     }
 
     function div_border_radius(id){
-        var radiusInput = document.querySelector('#radius') as HTMLInputElement;
-        let radius_string: string = radiusInput.value.toString() + "px";
+        var radSlider = document.querySelector('#radiusRange') as HTMLInputElement;
+        let radius_string: string = radSlider.value.toString() + "px";
         document.getElementById(id).setAttribute("border-radius", radius_string);
         document.getElementById(id).style.borderRadius = radius_string;
     }
