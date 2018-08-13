@@ -26,21 +26,31 @@
     }
 
     function div_color(id, color){
-        var radiusInput = document.querySelector('#radius') as HTMLInputElement;
         document.getElementById(id).setAttribute("background-color", color);
         document.getElementById(id).style.backgroundColor = color;
     }
 
     function div_border_radius(id){
-        var radSlider = document.querySelector('#radiusRange') as HTMLInputElement;
-        let radius_string: string = radSlider.value.toString() + "px";
+        // Get the current values of witdh, height and radius for the div
+        let heightInput: HTMLInputElement = document.querySelector('#height');
+        let heightInt: number = parseInt(heightInput.value);
+        let widthInput: HTMLInputElement = document.querySelector('#width');
+        let widthInt: number = parseInt(widthInput.value);        
+        let radSlider: HTMLInputElement = document.querySelector('#radiusRange');
+        // calculate one percentage of the total radius for the smallest side
+        var maxRad = Math.min(heightInt, widthInt) / 200;
+        // calculate the actual percentage of max rad the slider indicates
+        let radInt: number = parseInt(radSlider.value) * maxRad;
+        // convert it to valid input
+        let radius_string: string = radInt + "px";
+        // set the value
         document.getElementById(id).setAttribute("border-radius", radius_string);
         document.getElementById(id).style.borderRadius = radius_string;
     }
     
     function save_div(id){
-        div_height("div_1");//, 30);
-        div_width("div_1");//, 30);
+        div_height("div_1");
+        div_width("div_1");
         div_color("div_1", "lightblue");
         div_border_radius("div_1");
     }

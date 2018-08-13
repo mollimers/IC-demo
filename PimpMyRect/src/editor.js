@@ -23,13 +23,23 @@ function div_width(id) {
     document.getElementById(id).style.width = size_string;
 }
 function div_color(id, color) {
-    var radiusInput = document.querySelector('#radius');
     document.getElementById(id).setAttribute("background-color", color);
     document.getElementById(id).style.backgroundColor = color;
 }
 function div_border_radius(id) {
+    // Get the current values of witdh, height and radius for the div
+    var heightInput = document.querySelector('#height');
+    var heightInt = parseInt(heightInput.value);
+    var widthInput = document.querySelector('#width');
+    var widthInt = parseInt(widthInput.value);
     var radSlider = document.querySelector('#radiusRange');
-    var radius_string = radSlider.value.toString() + "px";
+    // calculate one percentage of the total radius for the largest side
+    var maxRad = Math.min(heightInt, widthInt) / 200;
+    // calculate the actual percentage of max rad the slider indicates
+    var radInt = parseInt(radSlider.value) * maxRad;
+    // convert it to valid input
+    var radius_string = radInt + "px";
+    // set the value
     document.getElementById(id).setAttribute("border-radius", radius_string);
     document.getElementById(id).style.borderRadius = radius_string;
 }
