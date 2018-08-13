@@ -11,23 +11,25 @@
  *              save_div(id)
  ***********************************************************************/
 
-    function div_height(id){ //, size) {
-        var heightInput = document.querySelector('#height') as HTMLInputElement;
+    function div_height(id){
+        let heightInput: HTMLInputElement = document.querySelector('#height');
         let size_string: string = heightInput.value.toString() + "px";
         document.getElementById(id).setAttribute("height", size_string);
         document.getElementById(id).style.height = size_string;
     }
 
-    function div_width(id){//, size) {
-        var widthInput = document.querySelector('#width') as HTMLInputElement;
+    function div_width(id){
+        let widthInput: HTMLInputElement = document.querySelector('#width');
         let size_string: string = widthInput.value.toString() + "px";
         document.getElementById(id).setAttribute("width", size_string);
         document.getElementById(id).style.width = size_string;
     }
 
-    function div_color(id, color){
-        document.getElementById(id).setAttribute("background-color", color);
-        document.getElementById(id).style.backgroundColor = color;
+    function div_color(id){
+        let color: HTMLInputElement = document.querySelector('#myColor');
+        let colorString: string = color.value;
+        document.getElementById(id).setAttribute("background-color", colorString);
+        document.getElementById(id).style.backgroundColor = colorString;
     }
 
     function div_border_radius(id){
@@ -49,8 +51,14 @@
     }
     
     function save_div(id){
-        div_height("div_1");
-        div_width("div_1");
-        div_color("div_1", "lightblue");
-        div_border_radius("div_1");
+        div_height("demoDiv");
+        div_width("demoDiv");
+        div_color("demoDiv");
+        div_border_radius("demoDiv");
+    }
+
+    function noenter(evt) {
+        if (evt.keyCode == 13) {
+            return false;
+        }
     }

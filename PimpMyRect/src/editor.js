@@ -22,9 +22,11 @@ function div_width(id) {
     document.getElementById(id).setAttribute("width", size_string);
     document.getElementById(id).style.width = size_string;
 }
-function div_color(id, color) {
-    document.getElementById(id).setAttribute("background-color", color);
-    document.getElementById(id).style.backgroundColor = color;
+function div_color(id) {
+    var color = document.querySelector('#myColor');
+    var colorString = color.value;
+    document.getElementById(id).setAttribute("background-color", colorString);
+    document.getElementById(id).style.backgroundColor = colorString;
 }
 function div_border_radius(id) {
     // Get the current values of witdh, height and radius for the div
@@ -33,7 +35,7 @@ function div_border_radius(id) {
     var widthInput = document.querySelector('#width');
     var widthInt = parseInt(widthInput.value);
     var radSlider = document.querySelector('#radiusRange');
-    // calculate one percentage of the total radius for the largest side
+    // calculate one percentage of the total radius for the smallest side
     var maxRad = Math.min(heightInt, widthInt) / 200;
     // calculate the actual percentage of max rad the slider indicates
     var radInt = parseInt(radSlider.value) * maxRad;
@@ -44,8 +46,13 @@ function div_border_radius(id) {
     document.getElementById(id).style.borderRadius = radius_string;
 }
 function save_div(id) {
-    div_height("div_1"); //, 30);
-    div_width("div_1"); //, 30);
-    div_color("div_1", "lightblue");
-    div_border_radius("div_1");
+    div_height("demoDiv");
+    div_width("demoDiv");
+    div_color("demoDiv");
+    div_border_radius("demoDiv");
+}
+function noenter(evt) {
+    if (evt.keyCode == 13) {
+        return false;
+    }
 }
