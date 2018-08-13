@@ -7,24 +7,26 @@
     <script type="text/javascript" src="./editor.js"></script>
 
     <form>
-        <div class="HeightAndWidth">
-            <!-- <span>Enter the &ltdiv&gt measurements in px</span> -->
-            <h3>Enter the &ltdiv&gt measurements (in px)</h3>
-            <label for="height">height:</label>
-            <input id="height" type="number" name="height" step="1" value="15">
-            <label for="width">width:</label>
-            <input id="width" type="number" name="width" step="1" value="15">
-            <br>
-            <br>
-            <label for="radius">radius:</label>
-            <input id="radius" type="number" name="radius" step="1" value="0">
+        <div class="divForm">
+            <div class="HeightAndWidth">
+                <!-- <span>Enter the &ltdiv&gt measurements in px</span> -->
+                <h3>Enter the &ltdiv&gt measurements (in px)</h3>
+                <label for="height">height:</label>
+                <input id="height" type="number" name="height" step="1" onchange="div_height('div_1')">
+                <label for="width">width:</label>
+                <input id="width" type="number" name="width" step="1" onchange="div_width('div_1')">
+            </div>
+            <div class="RadiusSlider">
+                <label for="radius">radius:</label>
+                <input type="range" min="1" max="100" value="10" class="slider" id="radiusRange" oninput="div_border_radius('div_1')">
+            </div>
+            <button onclick="save_div('div_1')">Save Div</button>
         </div>
     </form>
-    <button onclick="save_div('div_1')">Save Div</button>
     <br>
     <br>
     <br>
-    <div id="div_1"></div>
+    <div id="div_1" style="background-color:blue" radius="10px"></div>
 
 </body>
 </html>
