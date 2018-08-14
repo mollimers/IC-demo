@@ -11,6 +11,8 @@
  *              save_div(id)
  *              no_enter(evt)
  ***********************************************************************/
+import * as mdb from './mdb';
+let mdbHandler = new mdb.mdbHandler();
 
     // TODO: when we have persistance implemented, this variable should be stored and read there
     let divId: number = 0;
@@ -20,6 +22,7 @@
         let size_string: string = heightInput.value.toString() + "px";
         document.getElementById(id).setAttribute("height", size_string);
         document.getElementById(id).style.height = size_string;
+        return size_string;
     }
 
     function div_width(id){
@@ -27,6 +30,7 @@
         let size_string: string = widthInput.value.toString() + "px";
         document.getElementById(id).setAttribute("width", size_string);
         document.getElementById(id).style.width = size_string;
+        return size_string;
     }
 
     function div_color(id){
@@ -34,6 +38,7 @@
         let colorString: string = color.value;
         document.getElementById(id).setAttribute("background-color", colorString);
         document.getElementById(id).style.backgroundColor = colorString;
+        return colorString;
     }
 
     function div_border_radius(id){
@@ -52,6 +57,7 @@
         // set the value
         document.getElementById(id).setAttribute("border-radius", radius_string);
         document.getElementById(id).style.borderRadius = radius_string;
+        return radius_string;
     }
     
     function save_div(){
@@ -61,24 +67,18 @@
         let newDiv = document.createElement("div");
         // give the div an id, so that we can reference it further on
         let newDivId: string = newDiv.id = "div_" + divId;
-        console.log("newDiv: " + newDiv);
-        console.log("newDivId: " + newDivId);
-        
 
         // add the newly created element to the DOM
         let previousDiv: HTMLInputElement = document.querySelector('#div_0');
         let galleryDiv: HTMLInputElement = document.querySelector('.divGallery');
-        console.log("previousDiv: " + previousDiv);
-        console.log("prevDivId: " + prevDivId);
-        console.log("galleryDiv: " + galleryDiv);
-        
         galleryDiv.appendChild(newDiv);
-        //document.body.insertBefore(newDiv, previousDiv); 
+        let height: string = div_height(newDivId);
+        let width:  string = div_width(newDivId);
+        let color:  string = div_color(newDivId);
+        let radius: string = div_border_radius(newDivId);
 
-        div_height(newDivId);
-        div_width(newDivId);
-        div_color(newDivId);
-        div_border_radius(newDivId);
+        // save the div to the
+        mdbHandler.insert_div(newDivId, height, width, color, radius);
     }
 
     function no_enter(evt) {
