@@ -1,10 +1,12 @@
 "use strict";
 exports.__esModule = true;
 var http = require('http');
+var fs = require('fs');
+var editor = fs.readFileSync('divsGalore.html');
 var server = http.createServer(function (request, response) {
     console.log(request.url);
     if (request.url == '/') {
-        return response.end('Pimp My Rect'); //write a responseponse to the client
+        return response.end(editor); //write a responseponse to the client
     }
     else if (request.url == '/gallery') {
         return response.end('Div Gallery'); //write a responseponse to the client
@@ -14,13 +16,3 @@ var server = http.createServer(function (request, response) {
         return response.end('WAT!?! a 404?'); //write a responseponse to the client
     }
 }).listen(8080);
-//server.listen(8080);
-//create a server object:
-/* http.createServer(function (request, response) {
-    response.writeHead(200, {'Content-Type': 'text/html'});
-    var h = document.createElement("H1");
-    var t = document.createTextNode("Pimp My Rect");
-    h.appendChild(t);
-    response.write('Pimp My Rect'); //write a responseponse to the client
-    response.end(); //end the responseponse
-}).listen(8080); //the server object listens on port 8080 */ 

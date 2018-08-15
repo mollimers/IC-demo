@@ -1,3 +1,4 @@
 *.lock
 /node_modules
 package_lock.json
+/PimpMyRect/node_modules/
