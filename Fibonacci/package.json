@@ -1,0 +1,14 @@
+{
+  "name": "fibonacci",
+  "version": "1.0.0",
+  "description": "Implements a decoder and encoder for binary fibonacci numbers.",
+  "main": "./src/fibonacci.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "test/fibtest"
+  },
+  "author": "David Gillberg",
+  "license": "ISC"
+}

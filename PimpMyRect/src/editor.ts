@@ -78,7 +78,7 @@ let mdbHandler = new mdb.mdbHandler();
         let radius: string = div_border_radius(newDivId);
 
         // save the div to the
-        mdbHandler.insert_div(newDivId, height, width, color, radius);
+        mdbHandler.post(newDivId, height, width, color, radius);
     }
 
     function no_enter(evt) {
