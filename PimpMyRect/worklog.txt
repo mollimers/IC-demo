@@ -1,6 +1,6 @@
 1) html sida med <div> 's i olika färger och former     DONE
 
-2) skript som moddar någon egenskap                     DONE
+2) script som moddar någon egenskap                     DONE
 
 3) kontroll till height+width                           DONE
 
@@ -12,7 +12,21 @@
 
 7) create divs dynamically and save them to the gallery DONE
 
-8) persistens
+8) persistence
 
-9) test on all "evergreens"
+    a) Create working functions for                     DONE
+        Get, Post and Delete 
+
+    b) get the connection to work from the save button.
+        The problem seems to be with including other
+        modules into the file referenced by the HTML.
+            
+    !!! Misunderstood the instructions/
+            focused on the readme over the mail...
+        Should reimplement the editor in serverside
+        nodejs and call mdb.js from there for persistence.
+
+9) Reimplement the editor in nodejs
+
+10) test on all "evergreens"
     Chrome, Firefox, Opera, Edge

@@ -72,7 +72,7 @@ function save_div() {
     var color = div_color(newDivId);
     var radius = div_border_radius(newDivId);
     // save the div to the
-    mdbHandler.insert_div(height, width, color, radius);
+    mdbHandler.post(newDivId, height, width, color, radius);
 }
 function no_enter(evt) {
     if (evt.keyCode == 13) {

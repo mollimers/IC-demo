@@ -16,30 +16,52 @@ let MongoClient = require('mongodb').MongoClient;
 let url = "mongodb://localhost:27017/devStorage";
 
 export class mdbHandler {
-    connect(){
-        // connect to the mongodb instance that will hold the div-data
+    get(id) {
         MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
             if (err) throw err;
             var dbo = db.db("divdb");
-            let divCol = db.listCollections();
-            dbo.createCollection("divs", function(err, res) {
-                if (err) throw err;
-                console.log("Collection created!");
-                db.close();
-                });
-        });
+            dbo.collection("divs").findOne({_id: id}, function(err, result) {
+              if (err) throw err;
+              console.log("Get document with id " + id + " from db");
+              console.log("Find-result: ");
+              console.log(result);
+              db.close();
+              return result;
+            });
+          });
     }
 
-    insert_div(id, height, width, color, radius){
+    post(id, height, width, color, radius){
         MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
             if (err) throw err;
             var dbo = db.db("divdb");
-            var newDiv = { _id: id, h: height, w: width, c: color, r: radius };
-            dbo.collection("divs").insertOne(newDiv, function(err, res) {
+            dbo.collection("divs").findOne({_id: id}, function(err, result) {
                 if (err) throw err;
-                console.log("1 document inserted");
+                if ( result == null ) {
+                    var newDiv = { _id: id, h: height, w: width, c: color, r: radius };
+                    dbo.collection("divs").insertOne(newDiv, function(err, res) {
+                        if (err) throw err;
+                        console.log("Document with id " + id + " inserted");
+                    });
+                }
+                else {
+                    console.log("Document with id " + id + " already exists in the collection.");
+                }
                 db.close();
             });
         });
+    }
+
+    delete(id){
+        MongoClient.connect(url, function(err, db) {
+            if (err) throw err;
+            var dbo = db.db("divdb");
+            var myquery = { _id: id };
+            dbo.collection("divs").deleteOne(myquery, function(err, obj) {
+              if (err) throw err;
+              console.log("Document with id " + id + " deleted");
+              db.close();
+            });
+          });
     }
 }

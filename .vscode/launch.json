@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/PimpMyRect\\test\\test_editor.js",
+            "program": "${workspaceFolder}/PimpMyRect\\test\\test_mongodb.js",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ]

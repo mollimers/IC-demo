@@ -18,31 +18,55 @@ var url = "mongodb://localhost:27017/devStorage";
 var mdbHandler = /** @class */ (function () {
     function mdbHandler() {
     }
-    mdbHandler.prototype.connect = function () {
-        // connect to the mongodb instance that will hold the div-data
+    mdbHandler.prototype.get = function (id) {
         MongoClient.connect(url, { useNewUrlParser: true }, function (err, db) {
             if (err)
                 throw err;
             var dbo = db.db("divdb");
-            var divCol = db.listCollections();
-            dbo.createCollection("divs", function (err, res) {
+            dbo.collection("divs").findOne({ _id: id }, function (err, result) {
                 if (err)
                     throw err;
-                console.log("Collection created!");
+                console.log("Get document with id " + id + " from db");
+                console.log("Find-result: ");
+                console.log(result);
+                db.close();
+                return result;
+            });
+        });
+    };
+    mdbHandler.prototype.post = function (id, height, width, color, radius) {
+        MongoClient.connect(url, { useNewUrlParser: true }, function (err, db) {
+            if (err)
+                throw err;
+            var dbo = db.db("divdb");
+            dbo.collection("divs").findOne({ _id: id }, function (err, result) {
+                if (err)
+                    throw err;
+                if (result == null) {
+                    var newDiv = { _id: id, h: height, w: width, c: color, r: radius };
+                    dbo.collection("divs").insertOne(newDiv, function (err, res) {
+                        if (err)
+                            throw err;
+                        console.log("Document with id " + id + " inserted");
+                    });
+                }
+                else {
+                    console.log("Document with id " + id + " already exists in the collection.");
+                }
                 db.close();
             });
         });
     };
-    mdbHandler.prototype.insert_div = function (id, height, width, color, radius) {
-        MongoClient.connect(url, { useNewUrlParser: true }, function (err, db) {
+    mdbHandler.prototype["delete"] = function (id) {
+        MongoClient.connect(url, function (err, db) {
             if (err)
                 throw err;
             var dbo = db.db("divdb");
-            var newDiv = { _id: id, h: height, w: width, c: color, r: radius };
-            dbo.collection("divs").insertOne(newDiv, function (err, res) {
+            var myquery = { _id: id };
+            dbo.collection("divs").deleteOne(myquery, function (err, obj) {
                 if (err)
                     throw err;
-                console.log("1 document inserted");
+                console.log("Document with id " + id + " deleted");
                 db.close();
             });
         });
