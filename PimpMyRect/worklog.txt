@@ -17,16 +17,12 @@
     a) Create working functions for                     DONE
         Get, Post and Delete 
 
-    b) get the connection to work from the save button.
-        The problem seems to be with including other
-        modules into the file referenced by the HTML.
-            
-    !!! Misunderstood the instructions/
-            focused on the readme over the mail...
-        Should reimplement the editor in serverside
-        nodejs and call mdb.js from there for persistence.
+    b) enable saving the divs to the db
 
-9) Reimplement the editor in nodejs
+    c) enable reading the divs from the db and
+    populate the page
 
-10) test on all "evergreens"
+    d) select a div and delete it from both page and db
+
+9) test on all "evergreens"
     Chrome, Firefox, Opera, Edge

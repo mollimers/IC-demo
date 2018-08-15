@@ -1,5 +1,3 @@
-"use strict";
-exports.__esModule = true;
 /***********************************************************************
  * Module name: Editor
  * Author: David Gillberg
@@ -13,8 +11,6 @@ exports.__esModule = true;
  *              save_div(id)
  *              no_enter(evt)
  ***********************************************************************/
-var mdb = require("./mdb");
-var mdbHandler = new mdb.mdbHandler();
 // TODO: when we have persistance implemented, this variable should be stored and read there
 var divId = 0;
 function div_height(id) {
@@ -57,8 +53,9 @@ function div_border_radius(id) {
     return radius_string;
 }
 function save_div() {
-    var prevDivId = "div_" + divId;
-    divId++; // increase the id variable
+    // TODO:
+    // save the div-data to the db, get the id from the return data
+    // remove all other id-handling from this function
     // create a new div to add to the gallery
     var newDiv = document.createElement("div");
     // give the div an id, so that we can reference it further on
@@ -71,8 +68,7 @@ function save_div() {
     var width = div_width(newDivId);
     var color = div_color(newDivId);
     var radius = div_border_radius(newDivId);
-    // save the div to the
-    mdbHandler.post(newDivId, height, width, color, radius);
+    divId++; // increase the id variable        
 }
 function no_enter(evt) {
     if (evt.keyCode == 13) {
