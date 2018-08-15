@@ -1,4 +1,5 @@
 "use strict";
+exports.__esModule = true;
 /***********************************************************************
  * Module name: mdb
  * Author: David Gillberg
@@ -12,63 +13,48 @@
  *              save_div(id)
  *              no_enter(evt)
  ***********************************************************************/
-exports.__esModule = true;
-var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/devStorage";
+var mgs = require('mongoose');
+var divs = require('../src/database/models/divs');
 var mdbHandler = /** @class */ (function () {
     function mdbHandler() {
     }
-    mdbHandler.prototype.get = function (id) {
-        MongoClient.connect(url, { useNewUrlParser: true }, function (err, db) {
-            if (err)
-                throw err;
-            var dbo = db.db("divdb");
-            dbo.collection("divs").findOne({ _id: id }, function (err, result) {
-                if (err)
-                    throw err;
-                console.log("Get document with id " + id + " from db");
-                console.log("Find-result: ");
-                console.log(result);
-                db.close();
-                return result;
-            });
+    mdbHandler.prototype.get_all = function () {
+        mgs.connect(url);
+        divs.find({}, function (err, divs) {
+            if (err != null) {
+                console.log("Error finding entries: " + err);
+            }
+            else {
+                console.log("Divs found: " + divs);
+            }
         });
     };
-    mdbHandler.prototype.post = function (id, height, width, color, radius) {
-        MongoClient.connect(url, { useNewUrlParser: true }, function (err, db) {
-            if (err)
-                throw err;
-            var dbo = db.db("divdb");
-            dbo.collection("divs").findOne({ _id: id }, function (err, result) {
-                if (err)
-                    throw err;
-                if (result == null) {
-                    var newDiv = { _id: id, h: height, w: width, c: color, r: radius };
-                    dbo.collection("divs").insertOne(newDiv, function (err, res) {
-                        if (err)
-                            throw err;
-                        console.log("Document with id " + id + " inserted");
-                    });
-                }
-                else {
-                    console.log("Document with id " + id + " already exists in the collection.");
-                }
-                db.close();
-            });
+    mdbHandler.prototype.post = function (height, width, color, radius) {
+        mgs.connect(url);
+        divs.create({
+            height: height,
+            width: width,
+            color: color,
+            radius: radius
+        }, function (err, div) {
+            if (err != null) {
+                console.log("Error in creating entry: " + err);
+            }
+            else {
+                console.log("Entry created. Color: " + color);
+            }
         });
     };
     mdbHandler.prototype["delete"] = function (id) {
-        MongoClient.connect(url, function (err, db) {
-            if (err)
-                throw err;
-            var dbo = db.db("divdb");
-            var myquery = { _id: id };
-            dbo.collection("divs").deleteOne(myquery, function (err, obj) {
-                if (err)
-                    throw err;
-                console.log("Document with id " + id + " deleted");
-                db.close();
-            });
+        mgs.connect(url);
+        divs.deleteOne({ _id: id }, function (err) {
+            if (err != null) {
+                console.log("Error in creating entry: " + err);
+            }
+            else {
+                console.log("Entry deleted");
+            }
         });
     };
     return mdbHandler;

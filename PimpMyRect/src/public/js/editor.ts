@@ -11,9 +11,6 @@
  *              save_div(id)
  *              no_enter(evt)
  ***********************************************************************/
-import * as mdb from './mdb';
-let mdbHandler = new mdb.mdbHandler();
-
     // TODO: when we have persistance implemented, this variable should be stored and read there
     let divId: number = 0;
 
@@ -61,8 +58,10 @@ let mdbHandler = new mdb.mdbHandler();
     }
     
     function save_div(){
-        let prevDivId = "div_" + divId;
-        divId++;    // increase the id variable
+        // TODO:
+        // save the div-data to the db, get the id from the return data
+        // remove all other id-handling from this function
+
         // create a new div to add to the gallery
         let newDiv = document.createElement("div");
         // give the div an id, so that we can reference it further on
@@ -77,8 +76,7 @@ let mdbHandler = new mdb.mdbHandler();
         let color:  string = div_color(newDivId);
         let radius: string = div_border_radius(newDivId);
 
-        // save the div to the
-        mdbHandler.post(newDivId, height, width, color, radius);
+        divId++;    // increase the id variable        
     }
 
     function no_enter(evt) {

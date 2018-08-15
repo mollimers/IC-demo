@@ -1,26 +1,34 @@
-"use strict";
-exports.__esModule = true;
-var http = require('http');
-var server = http.createServer(function (request, response) {
+var express = require('express');
+var app = new express();
+app.use(express.static('public'));
+app.get('/', function (req, res) { return res.sendFile('divsGalore.html', { root: '.' }); });
+/* app.get('/', (req, res) => res.sendFile('editor.js', { root: '.'}));
+app.get('/', (req, res) => res.sendFile('editor.css', { root: '.'})); */
+app.get('/gallery', function (req, res) { return res.send('GALLERY'); });
+app.listen(8080, function () {
+    console.log("App listening on port 8080");
+});
+/* import { request } from "https";
+
+const http = require('http');
+const fs = require('fs');
+
+const divsGallore = fs.readFileSync('divsGalore.html');
+const editor = fs.readFileSync('editor.js');
+const edCss = fs.readFileSync('editor.css');
+
+const server = http.createServer(function (request, response) {
     console.log(request.url);
-    if (request.url == '/') {
-        return response.end('Pimp My Rect'); //write a responseponse to the client
+
+    if ( request.url == '/' ) {
+
+        return response.end(editor); //write a responseponse to the client
     }
-    else if (request.url == '/gallery') {
+    else if ( request.url == '/gallery' ) {
         return response.end('Div Gallery'); //write a responseponse to the client
     }
     else {
         response.writeHead(404);
         return response.end('WAT!?! a 404?'); //write a responseponse to the client
     }
-}).listen(8080);
-//server.listen(8080);
-//create a server object:
-/* http.createServer(function (request, response) {
-    response.writeHead(200, {'Content-Type': 'text/html'});
-    var h = document.createElement("H1");
-    var t = document.createTextNode("Pimp My Rect");
-    h.appendChild(t);
-    response.write('Pimp My Rect'); //write a responseponse to the client
-    response.end(); //end the responseponse
-}).listen(8080); //the server object listens on port 8080 */ 
+}).listen(8080); */ 
